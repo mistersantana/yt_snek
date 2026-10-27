@@ -1,6 +1,6 @@
 # ODIN + RAYLIB TUT: SNAKE
 
-### followed a YT tut to create a snake game :shrug:
+### Followed a YT tut to create a snake game :shrug:
 
 1. Open a window
 2. Draw snake head on a grid
