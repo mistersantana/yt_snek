@@ -13,7 +13,7 @@ CANVAS_SIZE :: GRID_SIZE * CELL_SIZE
 
 // arrays
 Vec2i :: [2]int
-snake: [MAX_SNAKE_LEN]Vec2i
+// snake: [snake.MAX_SNAKE_LEN]Vec2i
 
 // variables
 tick_timer: f32 = TICK_RATE
@@ -29,18 +29,24 @@ main :: proc() {
 
 	restart()
 
+	// init snek
+	snake := Snek {
+		MAX_LEN   = GRID_SIZE * CELL_SIZE,
+		direction = {0, 0},
+	}
+
 	for !rl.WindowShouldClose() {
 		if rl.IsKeyDown(.UP) {
-			move_direction = {0, -1}
+			snake.direction = {0, -1}
 		}
 		if rl.IsKeyDown(.DOWN) {
-			move_direction = {0, 1}
+			snake.direction = {0, 1}
 		}
 		if rl.IsKeyDown(.LEFT) {
-			move_direction = {-1, 0}
+			snake.direction = {-1, 0}
 		}
 		if rl.IsKeyDown(.RIGHT) {
-			move_direction = {1, 0}
+			snake.direction = {1, 0}
 		}
 
 		if game_over {
@@ -53,7 +59,7 @@ main :: proc() {
 
 		if tick_timer <= 0 {
 			next_part_pos := snake[0]
-			snake[0] += move_direction
+			snake[0] += snake.direction
 			head_pos := snake[0]
 
 			if head_pos.x < 0 ||
@@ -64,7 +70,7 @@ main :: proc() {
 				rl.PlaySound(death_sound)
 			}
 
-			for i in 1 ..< snake_len {
+			for i in 1 ..< snake.len {
 				cur_pos := snake[i]
 
 				if cur_pos == head_pos {
@@ -77,8 +83,8 @@ main :: proc() {
 			}
 
 			if head_pos == food_pos {
-				snake_len += 1
-				snake[snake_len - 1] = next_part_pos
+				snake.len += 1
+				snake[snake.len - 1] = next_part_pos
 				place_food()
 				rl.PlaySound(eat_sound)
 			}
@@ -97,14 +103,14 @@ main :: proc() {
 
 		rl.DrawTextureV(food_sprite, {f32(food_pos.x), f32(food_pos.y)} * CELL_SIZE, rl.WHITE)
 
-		for i in 0 ..< snake_len {
+		for i in 0 ..< snake.len {
 			part_sprite := body_sprite
 			dir: Vec2i
 
 			if i == 0 {
 				part_sprite = head_sprite
 				dir = snake[i] - snake[i + 1]
-			} else if i == snake_len - 1 {
+			} else if i == snake.len - 1 {
 				part_sprite = tail_sprite
 				dir = snake[i - 1] - snake[i]
 			} else {
@@ -137,7 +143,7 @@ main :: proc() {
 			rl.DrawText("Press Enter to play again", 4, 30, 15, rl.WHITE)
 		}
 
-		score := snake_len - 3
+		score := snake.len - 3
 		score_str := fmt.ctprintf("score: %v", score)
 		rl.DrawText(score_str, 4, CANVAS_SIZE - 14, 10, rl.GRAY)
 
