@@ -3,8 +3,8 @@
 ### Followed a YT tut to create a snake game :shrug:
 
 - [x] Open a window
-- [ ] Draw snake head on a grid
-- [ ] Zoom using camera
+- [x] Draw snake head on a grid
+~~- [ ] Zoom using camera~~
 - [ ] Make head move
 - [ ] Input
 - [ ] Multiple body parts
