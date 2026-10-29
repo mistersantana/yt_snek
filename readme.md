@@ -4,7 +4,7 @@
 
 - [x] Open a window
 - [x] Draw snake head on a grid
-- [ ]~~ Zoom using camera~~
+- [x] ~~Zoom using camera~~
 - [ ] Make head move
 - [ ] Input
 - [ ] Multiple body parts
