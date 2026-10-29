@@ -3,17 +3,17 @@
 ### Followed a YT tut to create a snake game :shrug:
 
 - [x] Open a window
-- [] Draw snake head on a grid
-- [] Zoom using camera
-- [] Make head move
-- [] Input
-- [] Multiple body parts
-- [] "Game over" on wall hit
-- [] Food that grows snake
-- [] "Game over" on self hit
-- [] Add snake and food graphics
-- [] Score counter
-- [] Add sounds
+- [ ] Draw snake head on a grid
+- [ ] Zoom using camera
+- [ ] Make head move
+- [ ] Input
+- [ ] Multiple body parts
+- [ ] "Game over" on wall hit
+- [ ] Food that grows snake
+- [ ] "Game over" on self hit
+- [ ] Add snake and food graphics
+- [ ] Score counter
+- [ ] Add sounds
 
 ### Add improvements to the game
 - Add highscore counter: a separate counter that doesn't reset after a game over [easy]
