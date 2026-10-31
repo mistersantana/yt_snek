@@ -5,8 +5,8 @@
 - [x] Open a window
 - [x] Draw snake head on a grid
 - [x] ~~Zoom using camera~~
-- [ ] Make head move
-- [ ] Input
+- [x] Make head move
+- [x] Input
 - [ ] Multiple body parts
 - [ ] "Game over" on wall hit
 - [ ] Food that grows snake
