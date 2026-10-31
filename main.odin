@@ -7,7 +7,7 @@ import rl "vendor:raylib"
 WINDOW_SIZE :: 1000
 GRID_SIZE :: 750
 CELL_SIZE :: 25
-TICK_INTERVAL :: 0.13
+TICK_INTERVAL :: 0.50
 
 // variables
 tick_rate: f32 = TICK_INTERVAL
@@ -41,6 +41,8 @@ main :: proc() {
 		if rl.IsKeyDown(.DOWN) {snek.pos += {0, 25}}
 		if rl.IsKeyDown(.LEFT) {snek.pos += {-25, 0}}
 		if rl.IsKeyDown(.RIGHT) {snek.pos += {25, 0}}
+
+		tick_rate -= rl.GetFrameTime()
 
 		rl.BeginDrawing()
 		rl.ClearBackground(rl.BLACK)
