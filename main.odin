@@ -52,6 +52,7 @@ main :: proc() {
 		rl.EndDrawing()
 	}
 
+	// deinitialization
 	rl.UnloadTexture(snek.head_sprite)
 	rl.UnloadTexture(snek.body_sprite)
 	rl.UnloadTexture(snek.tail_sprite)
