@@ -95,9 +95,9 @@ main :: proc() {
 
 		if game_state == .Game_Over {
 			rl.DrawText("GAME OVER", 20, 20, 24, rl.RED)
+		} else {
+			rl.DrawTexture(snek.head_sprite, snek.pos.x, snek.pos.y, rl.WHITE)
 		}
-
-		rl.DrawTexture(snek.head_sprite, snek.pos.x, snek.pos.y, rl.WHITE)
 
 		rl.EndDrawing()
 	}
